@@ -1,0 +1,14 @@
+import pandas as pd
+
+data = []
+def packet_callback(packet):
+    if packet.haslayer(IP):
+        data.append([packet[IP].src, packet[IP].dst, packet[IP].proto])
+
+print("[*] Sniffing for 20 packets...")
+sniff(iface="Wi-Fi", prn=packet_callback, store=0, count=20)
+
+# Save to CSV
+df = pd.DataFrame(data, columns=["Source_IP", "Destination_IP", "Protocol"])
+df.to_csv("captured_packets.csv", index=False)
+print("[+] Saved to captured_packets.csv")
