@@ -9,6 +9,6 @@ A Python script to capture and analyze network traffic for CodeAlpha's Cybersecu
 1. Install dependencies:  
    ```bash
    pip install scapy pandas
-Run on Comand Prompt as Administrator 
-bash:
-python network_sniffer.py
+2. Run on Comand Prompt as Administrator 
+```bash
+   python network_sniffer.py
